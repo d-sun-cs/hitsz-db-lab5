@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1672376762 source:e:\experiment\database\db5\extmem-c\extmem.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1308709046 e:\experiment\database\db5\extmem-c\extmem.h
+
+1672381790 source:e:\experiment\database\db5\extmem-c\test.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1672370588 source:e:\experiment\database\db5\extmem-c\linear_select.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1672470968 source:e:\experiment\database\db5\extmem-c\main.c
+
+1672467038 source:e:\experiment\database\db5\extmem-c\utils.c
+
+1672457856 source:e:\experiment\database\db5\extmem-c\linearselect.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1672470888 source:e:\experiment\database\db5\extmem-c\tpmms.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1672458632 source:e:\experiment\database\db5\extmem-c\indexselect.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1672470478 source:e:\experiment\database\db5\extmem-c\sortmergejoin.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
