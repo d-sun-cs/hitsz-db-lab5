@@ -5,7 +5,9 @@ int main(int argc, char **argv)
     // tpmms();
     // indexSelect();
     // sortMergeJoin();
-    sortIntersection();
+    // sortIntersection();
+    // sortUnion();
+    sortDifference();
     return 0;
 }
 

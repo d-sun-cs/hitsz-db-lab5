@@ -90,3 +90,22 @@ int shiftRecord(Buffer *buf, unsigned char **blk, int *recordCnt, int maxRecordC
     }
     return 0;
 }
+
+int writeToOutBlk(Buffer *buf, unsigned char **outBlk, int *recordCnt, int *outAddr, int X, int Y)
+{
+    // 如果已经写满一块，则输出至磁盘
+    // 要排除是第一条记录的情况
+    if (*recordCnt % 7 == 0 && *recordCnt != 0)
+    {
+        XY2record(*outBlk, 7, *outAddr + 1, -1);
+        if (writeBlockToDisk(*outBlk, (*outAddr)++, buf) != 0)
+        {
+            perror("Writing Block Failed!\n");
+            return -1;
+        }
+        *outBlk = getNewBlockInBuffer(buf);
+        printf("注：结果写入磁盘：%d\n", *outAddr - 1);
+    }
+    // 存储至输出缓存块
+    XY2record(*outBlk, (*recordCnt)++ % 7, X, Y);
+}

@@ -83,6 +83,8 @@ void linearSelect()
     printf("\n");
 
     freeBuffer(&buf);
+
+    return 0;
 }
 
 

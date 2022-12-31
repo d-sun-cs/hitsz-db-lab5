@@ -216,4 +216,5 @@ void indexSelect()
 
     freeBuffer(&buf);
 
+    return 0;
 }

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "extmem.h"
 
-void sortIntersection()
+int sortIntersection()
 {
     printf("------------------------\n");
     printf("基于排序的集合的交算法: \n");
@@ -16,7 +16,7 @@ void sortIntersection()
     unsigned char *blks[groups];
     // 记录输出缓存写到了第几条记录（从0开始写，0到6）
     int recordCnt = 0;
-    // 记录连接结果要输出到的磁盘块
+    // 记录交结果要输出到的磁盘块
     int outAddr = 140;
     // 记录当前正在处理每个关系的第几条记录
     // 从 0 开始，关系 R 共 112 条，关系 S 共 224 条
@@ -47,7 +47,7 @@ void sortIntersection()
 
     // 申请1块作为输出缓存
     blk = getNewBlockInBuffer(&buf);
-    // 遍历每个关系每块的当前记录，找到可以连接的记录
+    // 遍历每个关系每块的当前记录，找到相等的记录
     int A = -1;
     int B = -1;
     int C = -1;
@@ -61,7 +61,7 @@ void sortIntersection()
         {
             // 如果已经写满一块，则输出至磁盘
             // 要排除是第一条记录的情况
-            if (recordCnt % 7 == 0 && recordCnt != 0)
+            /* if (recordCnt % 7 == 0 && recordCnt != 0)
             {
                 XY2record(blk, 7, outAddr + 1, -1);
                 if (writeBlockToDisk(blk, outAddr++, &buf) != 0)
@@ -73,7 +73,11 @@ void sortIntersection()
                 printf("注：结果写入磁盘：%d\n", outAddr - 1);
             }
             // 存储至输出缓存块
-            XY2record(blk, recordCnt++ % 7, A, B);
+            XY2record(blk, recordCnt++ % 7, A, B); */
+            if (writeToOutBlk(&buf, &blk, &recordCnt, &outAddr, A, B) == -1)
+            {
+                return -1;
+            }
             printf("(X=%d, Y=%d)\n", A, B);
             if (shiftRecord(&buf, &blks[0], &recordCnts[0], RmaxRecordCnt) == -1)
             {
@@ -115,5 +119,7 @@ void sortIntersection()
     printf("S和R的交集有%d个元素。\n", recordCnt);
     printf("\n");
     freeBuffer(&buf);
+
+    return 0;
 
 }

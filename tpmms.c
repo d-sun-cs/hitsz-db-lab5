@@ -171,7 +171,7 @@ void externalSort(Buffer *buf, int beginBlk, int endBlk)
     }
 }
 
-void tpmms()
+int tpmms()
 {
     printf("------------------------\n");
     printf("两阶段多路归并排序算法: \n");
@@ -209,4 +209,5 @@ void tpmms()
 
     freeBuffer(&buf);
 
+    return 0;
 }

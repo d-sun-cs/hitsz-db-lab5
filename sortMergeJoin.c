@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include "extmem.h"
 
-
-
-void sortMergeJoin()
+int sortMergeJoin()
 {
     printf("--------------------\n");
     printf("基于排序的连接算法: \n");
@@ -180,4 +178,6 @@ void sortMergeJoin()
     printf("总共连接%d次。\n", recordCnt / 2);
     printf("\n");
     freeBuffer(&buf);
+
+    return 0;
 }
