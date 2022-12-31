@@ -44,7 +44,16 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="sortDifference.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sortIntersection.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="sortMergeJoin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sortUnion.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="test.c">
