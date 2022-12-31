@@ -2,35 +2,7 @@
 #include <stdio.h>
 #include "extmem.h"
 
-/**
-* 返回值：
-*   -1代表已经读完了所有记录
-*   0代表只是后移记录，并没有读入新块
-*   非0非-1代表读入了新块，返回的是新块号
-*/
-int shiftRecord(Buffer *buf, unsigned char **blk, int *recordCnt, int maxRecordCnt)
-{
-    ++(*recordCnt);
-    // 如果已经达到最后一条记录，则结束连接
-    if (*recordCnt == maxRecordCnt)
-    {
-        return -1;
-    }
-    // 如果下一条记录在下一个块中，则读入下一块
-    else if (*recordCnt % 7 == 0)
-    {
-        int nxtAddr = nextAddr(*blk);
-        freeBlockInBuffer(*blk, buf);
-        if ((*blk = readBlockFromDisk(nxtAddr, buf)) == NULL)
-        {
-            perror("Reading Block Failed!\n");
-            return -1;
-        }
-        // printf("读入下一块%d\n", nxtAddr);
-        return nxtAddr;
-    }
-    return 0;
-}
+
 
 void sortMergeJoin()
 {
@@ -205,6 +177,7 @@ void sortMergeJoin()
         printf("注：结果写入磁盘：%d\n", outAddr);
     }
     printf("\n");
-    printf("总共连接%d次。", recordCnt / 2);
+    printf("总共连接%d次。\n", recordCnt / 2);
+    printf("\n");
     freeBuffer(&buf);
 }

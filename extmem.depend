@@ -16,9 +16,12 @@
 	<stdio.h>
 	"extmem.h"
 
-1672470968 source:e:\experiment\database\db5\extmem-c\main.c
+1672480908 source:e:\experiment\database\db5\extmem-c\main.c
 
-1672467038 source:e:\experiment\database\db5\extmem-c\utils.c
+1672480984 source:e:\experiment\database\db5\extmem-c\utils.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
 
 1672457856 source:e:\experiment\database\db5\extmem-c\linearselect.c
 	<stdlib.h>
@@ -35,7 +38,12 @@
 	<stdio.h>
 	"extmem.h"
 
-1672470478 source:e:\experiment\database\db5\extmem-c\sortmergejoin.c
+1672479828 source:e:\experiment\database\db5\extmem-c\sortmergejoin.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1672480868 source:e:\experiment\database\db5\extmem-c\sortintersection.c
 	<stdlib.h>
 	<stdio.h>
 	"extmem.h"
