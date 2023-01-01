@@ -102,8 +102,8 @@ int sortMergeJoin()
                         printf("注：结果写入磁盘：%d\n", outAddr - 1);
                     }
                     // 存储至输出缓存块
-                    XY2record(blk, recordCnt++ % 6, A, B);
                     XY2record(blk, recordCnt++ % 6, C, D);
+                    XY2record(blk, recordCnt++ % 6, A, B);
                     // printf("连接了关系R的第%d条，关系S的第%d条\n", recordCnts[0], recordCnts[1]);
                     // 关系R后移一条记录
                     int res;
