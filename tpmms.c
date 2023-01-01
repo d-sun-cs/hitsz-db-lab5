@@ -22,7 +22,7 @@ void internalSort(Buffer *buf, int beginBlk, int endBlk)
         // 假设一组块数可以整除总块数，不单独处理最后一组未满的情况
         if (i % SUBSET_BLK_NUM == 0)
         {
-            printf("开始内排序第%d块到第%d块\n", i - 7, i);
+            printf("开始内排序磁盘块%d到磁盘块%d\n", i - 7, i);
             // 冒泡排序
             // X和Y用于存储待比较的两条记录
             int X1 = -1;
@@ -64,7 +64,7 @@ void internalSort(Buffer *buf, int beginBlk, int endBlk)
                 }
 
             }
-            printf("内排序结束，已输出至第%d块至第%d块\n",
+            printf("内排序结束，已输出中间结果到磁盘块%d至磁盘块%d\n",
                    INTERNAL_R_BLK + i - SUBSET_BLK_NUM,
                    INTERNAL_R_BLK + i - 1);
         }
@@ -144,14 +144,14 @@ void externalSort(Buffer *buf, int beginBlk, int endBlk)
             }
             blk = getNewBlockInBuffer(buf);
             recordCnt = 0;
-            printf("输出归并结果至第%d块\n", 301 + beginBlk - INTERNAL_R_BLK + k / 7);
+            printf("输出归并结果至磁盘块%d\n", 301 + beginBlk - INTERNAL_R_BLK + k / 7);
         }
         // 如果本次被选中的组已经处理完最后一条记录，则标记其为-1
         if (recordCnts[select] == SUBSET_BLK_NUM * 7)
         {
-            printf("处理完第%d组的磁盘块%d，该组处理完毕\n",
+            /* printf("处理完第%d组的磁盘块%d，该组处理完毕\n",
                    select,
-                   beginBlk + select * SUBSET_BLK_NUM + recordCnts[select] / 7 - 1);
+                   beginBlk + select * SUBSET_BLK_NUM + recordCnts[select] / 7 - 1); */
             recordCnts[select] = -1;
         }
         // 如果不是最后一条记录，且已经处理完一个块，则读入下一块
@@ -164,9 +164,9 @@ void externalSort(Buffer *buf, int beginBlk, int endBlk)
                 perror("Reading Block Failed!\n");
                 return -1;
             }
-            printf("处理完第%d组的磁盘块%d，读入下一块\n",
+            /* printf("处理完第%d组的磁盘块%d，读入下一块\n",
                    select,
-                   beginBlk + select * SUBSET_BLK_NUM + recordCnts[select] / 7 - 1);
+                   beginBlk + select * SUBSET_BLK_NUM + recordCnts[select] / 7 - 1); */
         }
     }
 }
