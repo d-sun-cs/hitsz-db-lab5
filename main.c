@@ -1,13 +1,13 @@
 int main(int argc, char **argv)
 {
     // test();
-    // linearSelect();
-    // tpmms();
-    // indexSelect();
+    linearSelect();
+    tpmms();
+    indexSelect();
     sortMergeJoin();
-    // sortIntersection();
-    // sortUnion();
-    // sortDifference();
+    sortIntersection();
+    sortUnion();
+    sortDifference();
     return 0;
 }
 
