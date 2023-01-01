@@ -34,9 +34,8 @@ int buildIndex(int beginIdx)
         if (idxData != preIdxData)
         {
             preIdxData = idxData;
-            XY2record(idxBlk, idxCnt, idxData, i);
-            // 如果索引块中已经包含7个指针，则输出索引块
-            if (++idxCnt == 7)
+            // 如果索引块中已经包含7个指针，则先输出索引块
+            if (idxCnt == 7)
             {
                 XY2record(idxBlk, idxCnt, idxOutAddr + 1, -1);
                 if (writeBlockToDisk(idxBlk, idxOutAddr++, &buf) != 0)
@@ -47,11 +46,12 @@ int buildIndex(int beginIdx)
                 idxBlk = getNewBlockInBuffer(&buf);
                 idxCnt = 0;
             }
+            XY2record(idxBlk, idxCnt++, idxData, i);
         }
         i = nextAddr(dataBlk);
         freeBlockInBuffer(dataBlk, &buf);
     }
-    // 输出最后一个不满7个指针的索引块
+    // 输出最后一个不超过7个指针的索引块
     if (idxCnt != 0)
     {
         if (writeBlockToDisk(idxBlk, idxOutAddr, &buf) != 0)
@@ -68,7 +68,7 @@ int buildIndex(int beginIdx)
 
 void indexSelect()
 {
-    int C = 128;
+    int C = 160;
     printf("------------------------------\n");
     printf("基于索引的选择算法 S.C = %d: \n", C);
     printf("------------------------------\n");
@@ -103,8 +103,9 @@ void indexSelect()
         for (j = 0; j < 7; j++)
         {
             record2XY(idxBlk, j, &idxData, &idxPtr);
-            // 第一次找到索引值大于目标值的索引项，则回退索引项
-            if (idxData > C)
+            // 第一次找到索引值大于目标值的索引项，
+            //      或者已经找完了最后一个索引项（idxData==0），则回退索引项
+            if (idxData > C || !idxData)
             {
                 flag = 1;
                 break;
@@ -119,7 +120,6 @@ void indexSelect()
             if (j)
             {
                 record2XY(idxBlk, j - 1, &preIdxData, &preIdxPtr);
-
             }
             // 如果上一条索引项不在当前索引块中，则需要再次读入上一索引块
             else
@@ -141,7 +141,9 @@ void indexSelect()
                 }
             }
             int noMore = 0;
-            for (int k = preIdxPtr; k && k < idxPtr;)
+            // 遍历可能的数据块，一定不包括回退前的那一块，
+            //      但如果回退前已经读到了最后一块（idxPtr==0），则直接读到最后
+            for (int k = preIdxPtr; k && (k < idxPtr || !idxPtr);)
             {
                 if ((dataBlk = readBlockFromDisk(k, &buf)) == NULL)
                 {
@@ -194,6 +196,9 @@ void indexSelect()
         {
             printf("没有满足条件的元组\n");
         }
+        // 读入下一索引块
+        i = nextAddr(idxBlk);
+        freeBlockInBuffer(idxBlk, &buf);
     }
 
     // 将最后一个不超过7条记录的块写入磁盘
