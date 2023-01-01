@@ -2,11 +2,6 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="extmem.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2532" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="sortUnion.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3137" topLine="86" />
@@ -17,14 +12,9 @@
 			<Cursor1 position="7695" topLine="188" />
 		</Cursor>
 	</File>
-	<File name="linearSelect.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
+	<File name="sortMergeJoin.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2897" topLine="62" />
-		</Cursor>
-	</File>
-	<File name="test.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="419" topLine="14" />
+			<Cursor1 position="62" topLine="161" />
 		</Cursor>
 	</File>
 	<File name="sortIntersection.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -32,14 +22,19 @@
 			<Cursor1 position="621" topLine="72" />
 		</Cursor>
 	</File>
+	<File name="test.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="419" topLine="14" />
+		</Cursor>
+	</File>
+	<File name="linearSelect.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2897" topLine="3" />
+		</Cursor>
+	</File>
 	<File name="extmem.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1576" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="sortMergeJoin.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="62" topLine="161" />
 		</Cursor>
 	</File>
 	<File name="utils.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -47,7 +42,12 @@
 			<Cursor1 position="2069" topLine="68" />
 		</Cursor>
 	</File>
-	<File name="sortDifference.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="extmem.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2532" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="sortDifference.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3169" topLine="86" />
 		</Cursor>
