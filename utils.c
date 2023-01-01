@@ -66,7 +66,7 @@ int nextAddr(unsigned char *blk)
 * 返回值：
 *   -1代表已经读完了所有记录
 *   0代表只是后移记录，并没有读入新块
-*   非0非-1代表读入了新块，返回的是新块号
+*   大于0代表读入了新块，返回的是新块号
 */
 int shiftRecord(Buffer *buf, unsigned char **blk, int *recordCnt, int maxRecordCnt)
 {
@@ -108,4 +108,5 @@ int writeToOutBlk(Buffer *buf, unsigned char **outBlk, int *recordCnt, int *outA
     }
     // 存储至输出缓存块
     XY2record(*outBlk, (*recordCnt)++ % 7, X, Y);
+    return 0;
 }

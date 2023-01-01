@@ -68,7 +68,7 @@ int buildIndex(int beginIdx)
 
 void indexSelect()
 {
-    int C = 160;
+    int C = 128;
     printf("------------------------------\n");
     printf("基于索引的选择算法 S.C = %d: \n", C);
     printf("------------------------------\n");

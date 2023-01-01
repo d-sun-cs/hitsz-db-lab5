@@ -61,19 +61,6 @@ int sortIntersection()
         {
             // 如果已经写满一块，则输出至磁盘
             // 要排除是第一条记录的情况
-            /* if (recordCnt % 7 == 0 && recordCnt != 0)
-            {
-                XY2record(blk, 7, outAddr + 1, -1);
-                if (writeBlockToDisk(blk, outAddr++, &buf) != 0)
-                {
-                    perror("Writing Block Failed!\n");
-                    return -1;
-                }
-                blk = getNewBlockInBuffer(&buf);
-                printf("注：结果写入磁盘：%d\n", outAddr - 1);
-            }
-            // 存储至输出缓存块
-            XY2record(blk, recordCnt++ % 7, A, B); */
             if (writeToOutBlk(&buf, &blk, &recordCnt, &outAddr, A, B) == -1)
             {
                 return -1;
